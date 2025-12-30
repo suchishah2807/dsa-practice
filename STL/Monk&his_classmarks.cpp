@@ -10,7 +10,7 @@ int main()
     int n;
     cin >> n;
 
-    map<int, set<string>> m1;
+    map<int, multiset<string>> m1;
 
     for (int i = 0; i < n; i++)
     {
