@@ -12,12 +12,18 @@ void generate(string s, int open, int close, vector<string> &ans)
 
     if (open > 0)
     {
-        generate(s + "(", open - 1, close, ans);
+        s.push_back('(');
+        generate(s, open - 1, close, ans);
+        s.pop_back();
     }
-
-    if (close > open)
+    if (close > 0)
     {
-        generate(s + ")", open, close - 1, ans);
+        if (close > open)
+        {
+            s.push_back(')');
+            generate(s, open, close - 1, ans);
+            s.pop_back();
+        }
     }
 }
 
