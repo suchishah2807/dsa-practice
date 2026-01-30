@@ -1,14 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+vector <vector<int>> subsets;
 void generate(vector<int> &subset, int i, vector<int> &nums) {
     if (i == nums.size()) {
-        // one complete subset formed
-        for (int x : subset) 
-        {
-            cout << x << " ";
-        }
-        cout << "\n";
+        subsets.push_back(subset);
         return;
     }
 
@@ -33,8 +28,14 @@ int main() {
         cin >> nums[i];
     }
 
-    vector<int> subset;
-    generate(subset, 0, nums);
+    vector<int> empty;
+    generate(empty, 0, nums);
+    for(auto subset:subsets){
+        for(auto ele:subset){
+            cout<<ele<<" "; 
+        }
+        cout<<endl;
+    }
 
     return 0;
 }
