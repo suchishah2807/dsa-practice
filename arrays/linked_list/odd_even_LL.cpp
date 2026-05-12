@@ -32,7 +32,7 @@ Node* convertarrtoLL(vector <int> &arr){
 void print(Node* head){
     Node* temp = head;
     while(temp){
-        cout<< head->data <<" ";
+        cout<< temp->data <<" ";
         temp=temp->next;
     }
     cout<<endl;
@@ -52,7 +52,7 @@ Node* oddevenLL(Node* head){
     Node* odd = head;
     Node* even = head->next;
     Node* evenHead = head->next;
-    while(even!=NULL || even->next!=NULL){
+    while(even!=NULL && even->next!=NULL){
         odd->next = odd->next->next;
         even->next = even->next->next;
         odd = odd->next;
@@ -68,7 +68,6 @@ int main() {
     Node* head = convertarrtoLL(arr);
     Node* result = oddevenLL(head);
     print(result);
-    
-
+    system("pause");
     return 0;
 }
