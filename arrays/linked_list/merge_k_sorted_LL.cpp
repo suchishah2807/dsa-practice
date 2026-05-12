@@ -1,0 +1,85 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    Node* next; //pointer to the next element
+    
+    public:
+    Node(int data1, Node* next1){
+        data=data1;
+        next=next1;
+    }
+    public:
+    Node(int data1){
+        data=data1;
+        next=nullptr; //for the last element the pointer of next element is null pointer
+    }
+};
+
+Node* convertarrtoLL(vector <int> &arr){
+    Node* head = new Node(arr[0]); // creates a new node with value of arr[0] and next=null pointer
+    Node* mover = head; //this is a pointer that tranverses through array
+    for(int i=1;i<arr.size();i++){
+        Node* temp = new Node(arr[i]);
+        mover->next = temp;
+        mover = temp;
+    }
+    return head;
+}
+
+Node* merge_2sorted_LL(Node* head1, Node* head2){
+    Node* newhead = new Node(0);
+    Node* temp = newhead;
+    Node* ptr1 = head1;
+    Node* ptr2 = head2;
+    while(ptr1 && ptr2){
+        if(ptr1->data > ptr2->data){
+            temp->next = ptr2;
+            temp = ptr2;
+            ptr2 = ptr2->next;
+        }
+        else{
+            temp->next = ptr1;
+            temp = ptr1;
+            ptr1 = ptr1->next;
+        }
+    }
+    if(ptr1) temp->next = ptr1;
+    if(ptr2) temp->next = ptr2;
+
+    return newhead->next;
+}
+
+// Input: lists = [[1,4,5],[1,3,4],[2,6]]
+// Output: [1,1,2,3,4,4,5,6]
+
+Node* merge_k_LL(vector<Node*> &arr){
+    // base case
+    if(arr.size() == 0) return nullptr;
+    
+    Node* result = arr[0];
+    
+    for(int i=1; i<arr.size(); i++){
+        result = merge_2sorted_LL(result, arr[i]);
+    }
+    return result;
+}
+
+void print(Node* head){
+    Node* temp = head;
+    while(temp){
+        cout<< head->data <<" ";
+    }
+    cout<<endl;
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    
+
+    return 0;
+}
