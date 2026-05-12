@@ -65,6 +65,7 @@ Node* remove_nodesw_GreaterEl(Node* head){
             temp = temp->next;
         }
     }
+    return reverseLL(rev);
 }
 int main() {
     ios::sync_with_stdio(false);
