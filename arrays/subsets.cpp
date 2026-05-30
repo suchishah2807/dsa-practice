@@ -23,10 +23,7 @@ int main() {
     int n;
     cin >> n;
 
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
-    }
+    vector<int> nums = {1,2,3};
 
     vector<int> empty;
     generate(empty, 0, nums);
