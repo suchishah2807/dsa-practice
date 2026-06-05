@@ -11,7 +11,7 @@ But to *think* in recursion, you need a framework. Here it is:
 
 ```
 1. Set the expectation   → what output do I want?
-2. Have faith            → assume it works for smaller cases (don't trace the stack!)
+2. Have f aith            → assume it works for smaller cases (don't trace the stack!)
 3. Make the connection   → use the smaller result to build the bigger one
 ```
 
